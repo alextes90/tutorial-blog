@@ -20,7 +20,6 @@ export const getStaticProps: GetStaticProps = async () => {
 };
 
 export default function Home({ allPostsData }: HomeProps) {
-  console.log(allPostsData);
   return (
     <Layout home={true}>
       <Head>
@@ -38,7 +37,9 @@ export default function Home({ allPostsData }: HomeProps) {
         <ul className='list-none p-0'>
           {allPostsData.map(({ id, date, title }) => (
             <li className='mb-5' key={id}>
-              <Link href={`/posts/${id}`}>{title}</Link>
+              <Link href={`/posts/${id}`} className='text-red'>
+                {title}
+              </Link>
               <br />
               <small className='text-gray-600'>
                 <Date dateString={date} />
